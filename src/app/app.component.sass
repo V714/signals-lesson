@@ -1,0 +1,46 @@
+.input-container
+    display: flex
+    justify-content: space-between
+    align-items: center
+    flex-direction: row
+    width: 400px
+    height: 100px
+    border-top-left-radius: 10px
+    border-top-right-radius: 10px
+    background: rgb(63,220,230)
+    background: linear-gradient(57deg, rgba(63,220,230,1) 0%, rgba(37,101,174,1) 100%)
+
+    .input-inner
+        display: flex
+        justify-content: center
+        align-items: flex-start
+        flex-direction: column
+        width: 100%
+        padding: 20px 30px
+        .input-text
+            color: #fff
+            font-weight: 700
+        .input-field
+            font-size: 20px
+            outline: none
+            border: none
+            background-color: #fff4
+            color: #fff
+
+    .add-button
+        top: 12px
+        right: 40px
+        position: relative
+        display: flex
+        justify-content: center
+        align-items: center
+        cursor: pointer
+        color: #66d3fa
+        transform: scale(1.7)
+        transition: 0.15s ease-in-out all
+        &:disabled
+            color: #3c99dc
+        &:hover:not([disabled])
+            transform: scale(2.4)
+            color: #66d3fa
+            transition: 0.05s ease-in-out all

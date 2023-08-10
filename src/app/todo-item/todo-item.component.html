@@ -1,0 +1,27 @@
+<div class="todo-element">
+  <div class="todo-content">
+    <div class="todo-content-time">
+      {{ todoItem.time | date : "HH:mm" }}
+    </div>
+    <div class="todo-content-message">{{ todoItem.message }}</div>
+  </div>
+  <div class="todo-element-buttons">
+    <button
+      class="todo-element-button"
+      (click)="emitDone()"
+      [disabled]="todoItem.done"
+    >
+      <span class="material-icons">done</span>
+    </button>
+    <button
+      class="todo-element-button"
+      (click)="handleEdit()"
+      [disabled]="todoItem.done"
+    >
+      <span class="material-icons-outlined">edit</span>
+    </button>
+    <button class="todo-element-button" (click)="emitDelete()">
+      <span class="material-icons-outlined">delete</span>
+    </button>
+  </div>
+</div>
