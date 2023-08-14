@@ -1,17 +1,24 @@
-<div class="input-container">
-  <div class="input-inner">
-    <div class="input-text">to-do list ({{ todoListLength() }})</div>
-    <input class="input-field" [(ngModel)]="message" />
+<div class="main-container">
+  <div class="input-container" [class.no-tabs]="todoListLength() === 0">
+    <div class="input-inner">
+      <div class="input-text">to-do list ({{ todoListLength() }})</div>
+      <input class="input-field" [(ngModel)]="message" />
+    </div>
+    <button
+      class="add-button"
+      [disabled]="message.length === 0"
+      (click)="handleNewTodo(message)"
+    >
+      <span class="material-icons-outlined">add_circle</span>
+    </button>
   </div>
-  <button
-    class="add-button"
-    [disabled]="message.length === 0"
-    (click)="handleNewTodo(message)"
-  >
-    <span class="material-icons-outlined">add_circle</span>
-  </button>
+  <div [class.animate-new-message]="newMessageAnimate">
+    <app-todo-item
+      *ngFor="let todo of todoList()"
+      [todoItem]="todo"
+      (delete)="delete($event)"
+    ></app-todo-item>
+  </div>
+
+  <app-api></app-api>
 </div>
-<app-todo-item
-  *ngFor="let todo of todoList()"
-  [todoItem]="todo"
-></app-todo-item>
